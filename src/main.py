@@ -6,10 +6,11 @@ import math
 #print(datas)
 #print(len(datas) / 4)
 
+windowSize = 900
 
 def main():
     pygame.init()
-    size = width, height = (900, 900)
+    size = width, height = (windowSize, windowSize)
     screen = pygame.display.set_mode(size)
 
     gameLoop(screen)
@@ -17,8 +18,8 @@ def main():
 def gameLoop(screen):
     white = (255, 255, 255)
     blackCell = pygame.image.load("../img/black.png")
-    array = [[1, 1, 0], [1, 1, 1], [0, 0, 0]]
-    futureArray = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
+    array = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 1, 1, 1]]
+    futureArray = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 1, 1, 1]]
     turn = 1
     aliveCell = 1
 
@@ -38,7 +39,7 @@ def gameLoop(screen):
         pygame.time.delay(700)
 
 def drawComponents(screen, blackCell, array, turn):
-    blackCell = pygame.transform.scale(blackCell, (300, 300))
+    blackCell = pygame.transform.scale(blackCell, ((int)(windowSize / len(array)), (int)(windowSize / len(array))))
     font = pygame.font.Font('freesansbold.ttf', 24)
     text = font.render('Turn : ' + str(turn), True, (0, 255, 0)) 
     positionX = 0
@@ -48,9 +49,9 @@ def drawComponents(screen, blackCell, array, turn):
         for cell in subArray:
             if (cell == 1):
                 screen.blit(blackCell, (positionX, positionY))
-            positionX += 300
+            positionX += (int)(windowSize / len(array))
         positionX = 0
-        positionY += 300
+        positionY += (int)(windowSize / len(array))
     screen.blit(text, (10, 10))
 
 def updateCells(array, futureArray):
@@ -67,9 +68,10 @@ def updateCells(array, futureArray):
                     futureArray[line][column] = 1
                 else:
                     futureArray[line][column] = 0
-    for line in range(3):
-        for column in range(3):
+    for line in range(len(array)):
+        for column in range(len(array)):
             array[line][column] = futureArray[line][column]
+            futureArray[line][column] = 0
 
 def getNeighbour(array, line, column):
     squareSize = len(array)
