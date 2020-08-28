@@ -1,11 +1,6 @@
 import sys, pygame
 import math 
 
-#imageData = pygame.image.load("../map/3x3.png") # loading image
-#datas = pygame.image.tostring(imageData, "RGBA")
-#print(datas)
-#print(len(datas) / 4)
-
 windowSize = 900
 
 def main():
@@ -18,8 +13,8 @@ def main():
 def gameLoop(screen):
     white = (255, 255, 255)
     blackCell = pygame.image.load("../img/black.png")
-    array = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 1, 1, 1]]
-    futureArray = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 1, 1, 1]]
+    array = readMap()
+    futureArray = readMap()
     turn = 1
     aliveCell = 1
 
@@ -37,6 +32,24 @@ def gameLoop(screen):
                 if (cell == 1):
                     aliveCell = 1
         pygame.time.delay(700)
+
+def readMap():
+    mapData = pygame.image.load(sys.argv[len(sys.argv) - 1]) # loading image
+    datas = pygame.image.tostring(mapData, "RGBA")
+    squareSize = (int)(len(datas) / 4)
+    res = [[0 for i in range(squareSize)] for i in range(squareSize)]
+    x = 0
+    y = 0
+    cell = 0
+
+    for i in range(len(datas)):
+        res[x][y] = cell
+        x += 1
+        if (x == squareSize):
+            x = 0
+            y += 1
+        cell = 0
+    return res
 
 def drawComponents(screen, blackCell, array, turn):
     blackCell = pygame.transform.scale(blackCell, ((int)(windowSize / len(array)), (int)(windowSize / len(array))))
