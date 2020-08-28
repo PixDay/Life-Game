@@ -17,11 +17,13 @@ def main():
 def gameLoop(screen):
     white = (255, 255, 255)
     blackCell = pygame.image.load("../img/black.png")
-    array = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
+    array = [[1, 1, 0], [1, 1, 1], [0, 0, 0]]
     futureArray = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
     turn = 1
+    aliveCell = 1
 
-    while 1:
+    while aliveCell:
+        aliveCell = 0
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
         screen.fill(white)
@@ -29,6 +31,10 @@ def gameLoop(screen):
         updateCells(array, futureArray)
         turn += 1
         pygame.display.update() 
+        for subArray in array:
+            for cell in subArray:
+                if (cell == 1):
+                    aliveCell = 1
         pygame.time.delay(700)
 
 def drawComponents(screen, blackCell, array, turn):
