@@ -13,9 +13,8 @@ def gameLoop(screen):
     while 1:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
-        screen.fill(black)
+        screen.fill(white)
         pygame.display.flip()
 
 if __name__ == "__main__":
-    # execute only if run as a script
     main()
