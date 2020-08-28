@@ -31,7 +31,7 @@ def gameLoop(screen):
             for cell in subArray:
                 if (cell == 1):
                     aliveCell = 1
-        pygame.time.delay(700)        
+        pygame.time.delay(16)        
 
 def readMap():
     mapData = pygame.image.load(sys.argv[len(sys.argv) - 1]) # loading image
