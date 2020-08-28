@@ -33,7 +33,7 @@ def gameLoop(screen):
 
 def drawComponents(screen, blackCell, array, turn):
     blackCell = pygame.transform.scale(blackCell, (300, 300))
-    font = pygame.font.Font('freesansbold.ttf', 16)
+    font = pygame.font.Font('freesansbold.ttf', 24)
     text = font.render('Turn : ' + str(turn), True, (0, 255, 0)) 
     positionX = 0
     positionY = 0
@@ -48,8 +48,8 @@ def drawComponents(screen, blackCell, array, turn):
     screen.blit(text, (10, 10))
 
 def updateCells(array, futureArray):
-    for line in range(3):
-        for column in range(3):
+    for line in range(len(array)):
+        for column in range(len(array)):
             neighbour = getNeighbour(array, line, column)
             if (array[line][column] == 1):
                 if (neighbour == 2):
