@@ -66,7 +66,7 @@ def updateCells(array, futureArray):
             array[line][column] = futureArray[line][column]
 
 def getNeighbour(array, line, column):
-    squareSize = 3
+    squareSize = len(array)
     neighbour = 0
     
     #check uper line
