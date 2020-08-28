@@ -31,7 +31,7 @@ def gameLoop(screen):
             for cell in subArray:
                 if (cell == 1):
                     aliveCell = 1
-        pygame.time.delay(700)
+        pygame.time.delay(700)        
 
 def readMap():
     mapData = pygame.image.load(sys.argv[len(sys.argv) - 1]) # loading image
@@ -44,10 +44,10 @@ def readMap():
 
     for i in range(len(datas)):
         if (i % 4 == 0):  
-            if (datas[i] == 255 and datas[i + 1] == 255 and datas[i + 2] == 255 and datas[i + 3] == 255):
+            if (datas[i] == 0 and datas[i + 1] == 0 and datas[i + 2] == 0):
                 cell = 1
             i += 4
-            res[x][y] = cell
+            res[y][x] = cell
             x += 1
             if (x == squareSize):
                 x = 0
@@ -76,7 +76,7 @@ def updateCells(array, futureArray):
         for column in range(len(array)):
             neighbour = getNeighbour(array, line, column)
             if (array[line][column] == 1):
-                if (neighbour == 2):
+                if (neighbour == 2 or neighbour == 3):
                     futureArray[line][column] = 1
                 else:
                     futureArray[line][column] = 0
