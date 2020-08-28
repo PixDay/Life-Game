@@ -36,19 +36,23 @@ def gameLoop(screen):
 def readMap():
     mapData = pygame.image.load(sys.argv[len(sys.argv) - 1]) # loading image
     datas = pygame.image.tostring(mapData, "RGBA")
-    squareSize = (int)(len(datas) / 4)
+    squareSize = (int)(math.sqrt((int)(len(datas) / 4)))
     res = [[0 for i in range(squareSize)] for i in range(squareSize)]
     x = 0
     y = 0
     cell = 0
 
     for i in range(len(datas)):
-        res[x][y] = cell
-        x += 1
-        if (x == squareSize):
-            x = 0
-            y += 1
-        cell = 0
+        if (i % 4 == 0):  
+            if (datas[i] == 255 and datas[i + 1] == 255 and datas[i + 2] == 255 and datas[i + 3] == 255):
+                cell = 1
+            i += 4
+            res[x][y] = cell
+            x += 1
+            if (x == squareSize):
+                x = 0
+                y += 1
+            cell = 0
     return res
 
 def drawComponents(screen, blackCell, array, turn):
