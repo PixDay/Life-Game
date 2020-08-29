@@ -1,7 +1,9 @@
 import sys, pygame
 import math 
+import os
 
 windowSize = 900
+os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (30, 50)
 
 def main():
     pygame.init()
@@ -31,7 +33,7 @@ def gameLoop(screen):
             for cell in subArray:
                 if (cell == 1):
                     aliveCell = 1
-        pygame.time.delay(16)        
+        pygame.time.delay(20)        # 33 for 60 fps
 
 def readMap():
     mapData = pygame.image.load(sys.argv[len(sys.argv) - 1]) # loading image
