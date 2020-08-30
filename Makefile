@@ -1,10 +1,13 @@
 ##
 ## 30/08/2020 Fontainebleau
 ## Makefile
-## File description:
+## File creator:
 ## Adrien Colombier
 ##
 
+SRC		=	src/main.py	\
+			src/game.py
 all:
-	@python src/*.py map/canon.png
-.PHONY: all
+			python ${SRC} map/canon.png
+
+.PHONY: 	all
