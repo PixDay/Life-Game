@@ -14,7 +14,7 @@ def main():
 
 def gameLoop(screen):
     white = (255, 255, 255)
-    blackCell = pygame.image.load("../img/black.png")
+    blackCell = pygame.image.load("img/black.png")
     array = readMap()
     futureArray = readMap()
     turn = 1
