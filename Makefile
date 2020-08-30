@@ -5,8 +5,9 @@
 ## Adrien Colombier
 ##
 
-SRC		=	src/main.py	\
-			src/game.py
+SRC		=	src/main.py		\
+			src/game.py		\
+			src/graphic.py
 all:
 			python ${SRC} map/canon.png
 
