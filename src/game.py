@@ -7,6 +7,7 @@
 
 import sys, pygame
 from main import *
+from graphic import *
 
 def gameLoop(screen):
     white = (255, 255, 255)
