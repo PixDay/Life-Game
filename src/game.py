@@ -5,4 +5,5 @@
 ## Adrien Colombier
 ##
 
-print("game.py file")
+def externFile():
+    print("game.py file function")

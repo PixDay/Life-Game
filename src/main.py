@@ -9,6 +9,8 @@ import sys, pygame
 import math 
 import os
 
+from game import *
+
 windowSize = 900
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (30, 50)
 
@@ -17,6 +19,7 @@ def main():
     size = width, height = (windowSize, windowSize)
     screen = pygame.display.set_mode(size)
 
+    externFile()
     gameLoop(screen)
 
 def gameLoop(screen):
