@@ -1,3 +1,10 @@
+##
+## 30/08/2020 Fontainebleau
+## main.py
+## File description:
+## Adrien Colombier
+##
+
 import sys, pygame
 import math 
 import os
