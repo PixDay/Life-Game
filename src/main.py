@@ -1,7 +1,7 @@
 ##
 ## 30/08/2020 Fontainebleau
 ## main.py
-## File description:
+## File creator:
 ## Adrien Colombier
 ##
 
