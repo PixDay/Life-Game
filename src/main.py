@@ -19,7 +19,6 @@ def main():
     size = width, height = (windowSize, windowSize)
     screen = pygame.display.set_mode(size)
 
-    externFile()
     gameLoop(screen)
 
 def gameLoop(screen):
@@ -44,7 +43,7 @@ def gameLoop(screen):
                 if (cell == 1):
                     aliveCell = 1
         pygame.time.delay(20)        # 33 for 60 fps
-
+        
 def readMap():
     mapData = pygame.image.load(sys.argv[len(sys.argv) - 1]) # loading image
     datas = pygame.image.tostring(mapData, "RGBA")
