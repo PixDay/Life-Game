@@ -7,7 +7,8 @@
 
 SRC		=	src/main.py		\
 			src/game.py		\
-			src/graphic.py
+			src/graphic.py	\
+			src/data.py
 all:
 			python ${SRC} map/canon.png
 
