@@ -11,6 +11,7 @@ from graphic import *
 from data import *
 
 def gameLoop(screen):
+    clock = pygame.time.Clock()
     white = (255, 255, 255)
     blackCell = pygame.image.load("img/black.png")
     array = readMap()
@@ -19,6 +20,7 @@ def gameLoop(screen):
     aliveCell = 1
 
     while aliveCell:
+        clock.tick(60)
         aliveCell = 0
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
@@ -31,7 +33,7 @@ def gameLoop(screen):
             for cell in subArray:
                 if (cell == 1):
                     aliveCell = 1
-        pygame.time.delay(20)        # 33 for 60 fps
+        #pygame.time.delay(20)        # 33 for 60 fps
 
 def updateCells(array, futureArray):
     for line in range(len(array)):
