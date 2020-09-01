@@ -11,6 +11,7 @@ import os
 from game import *
 
 windowSize = 900
+fps = 60
 os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (30, 50)
 
 def main():
