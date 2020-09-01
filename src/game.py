@@ -12,6 +12,7 @@ from data import *
 
 def gameLoop(screen):
     clock = pygame.time.Clock()
+    speed = 1
     white = (255, 255, 255)
     blackCell = pygame.image.load("img/black.png")
     array = readMap()
@@ -20,7 +21,7 @@ def gameLoop(screen):
     aliveCell = 1
 
     while aliveCell:
-        clock.tick(60)
+        clock.tick(fps * speed)
         aliveCell = 0
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
