@@ -34,8 +34,7 @@ def gameLoop(screen):
             for cell in subArray:
                 if (cell == 1):
                     aliveCell = 1
-        #pygame.time.delay(20)        # 33 for 60 fps
-
+                    
 def updateCells(array, futureArray):
     for line in range(len(array)):
         for column in range(len(array)):
